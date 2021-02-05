@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS加密</title>
+    <script type="text/javascript" src="./des.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+          	<td align="left">字符串：</td>
+          	<td align="left"><textarea type="text" id="str" cols="75" rows="15"></textarea></td>       
+        </tr>
+        <tr>          
+			<td align="left">加密key：</td>
+			<td align="left">
+				<input type="text" id="key1" placeholder="key1"/>
+				<input type="text" id="key2" placeholder="key2"/>
+				<input type="text" id="key3" placeholder="key3"/>
+			</td>
+        </tr>
+        <tr>
+          	<td align="left"><input type="button" value="获取加密结果与解密结果" onclick="getResult()"/></td>
+        </tr>
+        <tr>
+			<td align="left">加密结果：</td>
+			<td align="left"><textarea type="text" id="enStr" cols="75" rows="10"></textarea></td>
+        </tr>
+        <tr>
+			<td align="left">解密结果： </td>
+			<td align="left"><textarea type="text" id="dnStr" cols="75" rows="15"></textarea></td>
+        </tr>
+    </table>
+</body>
+<script>        
+function getResult(){
+	//待加密字符串
+	var str = document.getElementById("str").value;
+	//第一个参数必须；第二个、第三个参数可选
+	var key1 = document.getElementById("key1").value;  
+	var key2 = document.getElementById("key2").value; 
+	var key3 = document.getElementById("key3").value; 
+	console.log(str);
+	//加密方法      
+	var  enResult = strEnc(str,key1,key2,key3);         
+	//解密方法
+	var deResult = strDec(enResult,key1,key2,key3);
+	//展示结果
+	document.getElementById("enStr").innerText = enResult; 
+	document.getElementById("dnStr").innerText = deResult;
+}
+</script>
+</html>
